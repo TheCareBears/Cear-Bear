@@ -64,33 +64,36 @@
   {#if showDefaultActivities && !activityPage}
   <div class="flex">
     <div class="flex-1">
-  <div class="flex  overflow-y-auto">
-  <div class="absolute top-10 left-0 w-1/4 pt-8  place-content-between ">
-  
-	<div class="pt-9 flex-auto">
-	  <h1 class="text-2xl font-bold text-center">Mood Activities</h1>
-	  <div class="max-w-md mx-auto mt-10 p-6 space-y-4">
-		<a href="./mood/yoga" class="block text-black-200 hover:text-white">
-		  <div class="p-9 ... bg-orange-200 pt-6 pb-8 rounded-md shadow-md">Yoga</div>
-		</a>
-		<a href="./mood/meditation" class="block text-black-200 hover:text-white">
-		  <div class="p-9 ... bg-orange-200 pt-6 pb-8 rounded-md">Meditation</div>
-		</a>
-		<a href="./mood/breathingExercise" class="block text-black-200 hover:text-white">
-		  <div class="p-9 ... bg-orange-200 pt-6 pb-8 rounded-md">Breathing Exercise</div>
-		</a>
-	
-	  </div>
-	</div>
-	</div>
-</div>
-</div>
-</div>
+      <div class="flex lg:overflow-y-auto min-h-screen">
+        <div class="lg:absolute lg:w-1/4 lg:top-10 lg:left-0 w-full pt-8 lg:place-content-between mt-9">
+          <div class=" flex-auto">
+            <h1 class="text-2xl font-bold text-center">Mood Activities</h1>
+            <div class="max-w-md mx-auto mt-2 p-6 space-y-4">
+              <a href="./mood/yoga" class="block text-black-200 hover:text-white">
+                <div class="p-9 bg-orange-200 pt-6 pb-8 rounded-md shadow-md">Yoga</div>
+              </a>
+              <a href="./mood/meditation" class="block text-black-200 hover:text-white">
+                <div class="p-9 bg-orange-200 pt-6 pb-8 rounded-md">Meditation</div>
+              </a>
+              <a href="./mood/breathingExercise" class="block text-black-200 hover:text-white">
+                <div class="p-9 bg-orange-200 pt-6 pb-8 rounded-md">Breathing Exercise</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="lg:hidden w-full absolute bottom-0 pt-8 place-content-between">
+          <!-- Content for the bottom of the screen in small screens -->
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+
   {:else if selectedMood && activityPage}
 	<div class="pt-3"></div>
 	  <div class="max-w-md mx-auto mt-3 p-6 space-y-4">
 		<a href={activityPage} class="block text-black-200 hover:text-white">
-		  <div class="p-6 ... bg-orange-200 pt-6 pb-8 text-black  rounded hover:bg-button-2 text-center border-solid border-2 border-sky-500 ">Exercises to help  your current Mood "{selectedMood}"</div>
+		  <div class="p-6 ... bg-orange-200 pt-6 pb-8 text-black  rounded hover:bg-button-2 text-center border-double border-4 border-sky-300 ">Exercises to help  your current Mood "{selectedMood}"</div>
 		</a>
 	  </div>
 	

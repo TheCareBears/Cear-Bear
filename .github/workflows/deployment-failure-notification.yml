@@ -1,5 +1,10 @@
-name: Deployment Failure notification
-on: [deployment_status]
+name: Deployment Status Notification
+
+on:
+  push:
+    branches:
+      - main  
+
 
 jobs:
   add-failure-comment:

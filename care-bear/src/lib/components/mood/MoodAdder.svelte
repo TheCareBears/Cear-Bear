@@ -147,60 +147,25 @@ onMount(() => {
 
 <div class="flex">
     <div class="flex-1">
+        <div class="flex lg:overflow-y-auto min-h-screen pl-8">
+            <div class="lg:absolute lg:w-1/4 lg:top-10 lg:right-0 w-full pt-10 lg:place-content-between pr-8 mt-9"> <!-- Added pr-8 for right padding -->
+                <h1 class="text-2xl font-bold mb-4">Inspirational</h1>
+                <div class="bg-gray-300 rounded-md pl-4">
+                    <div class="flex flex-col items-center h-full">
+                        <p>Embrace each day with gratitude. Life's journey is a canvas; challenges are brushstrokes. Believe in your strength, create positive change. Your unique journey enriches life's tapestry. Move forward, triumph with courage, inspire others. Your simple, touching story paints a masterpiece. Keep inspiring.</p>
+                    </div>
+                </div>
 
-        <div class="absolute top-12 right-0 w-full md:w-1/4 p-4 md:p-16">
-            <h1 class="text-2xl font-bold mb-4">Inspirational</h1>
-            <div class="bg-gray-300 rounded-md pl-4">
-                <div class="flex flex-col items-center h-full">
-                    <p>Embrace each day with gratitude. Life's journey is a canvas; challenges are brushstrokes. Believe in your strength, create positive change. Your unique journey enriches life's tapestry. Move forward, triumph with courage, inspire others. Your simple, touching story paints a masterpiece. Keep inspiring.</p>
+                <div class="bg-gray-300 rounded-md mt-4"> 
+                    <h1 class="text-2xl font-bold mb-4">Soothing Music</h1>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/lFcSrYw-ARY" frameborder="0" allowfullscreen class="w-full h-full"></iframe></div>
                 </div>
             </div>
-
-            <div class="bg-gray-300 rounded-md mt-4"> 
-                <h1 class="text-2xl font-bold mb-4">Soothing Music</h1>
-                <div class="video-container"><iframe src="https://www.youtube.com/embed/lFcSrYw-ARY" frameborder="0" allowfullscreen class="w-full h-full" /></div>
+            <div class="lg:hidden w-full absolute bottom-0 pt-8 place-content-between top-10 pl-8">
+                <!-- Content for the bottom of the screen in small screens -->
             </div>
         </div>
-
     </div>
 </div>
 
 
-
-<!-- Mobile -->
-<Toaster />
-<main class="max-w-screen-md mx-auto mt-10 p-6 lg:hidden">
-    <h1 class="text-2xl font-bold mb-4 text-center">How are you feeling today?</h1>
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center overflow-y-auto max-h-96 lg:hidden">
-        {#each Object.keys(moods) as moodId}
-            <div
-                id={`mood_${moodId}`}
-                class={`w-32 cursor-pointer p-4 m-2 rounded-lg transition-transform transform hover:scale-105 ${
-                    selectedMood === moodId ? 'border border-red' : 'bg-orange-200'
-                }`}
-                on:click={() => selectMood(moodId)}
-            >
-                <img
-                    class="h-auto w-full rounded-lg mx-auto transition-transform transform hover:scale-105"
-                    src={moods[moodId].image}
-                    alt={`${moods[moodId].description} emoji`}
-                />
-                <div class="mt-2 text-center">{moods[moodId].description}</div>
-            </div>
-        {/each}
-    </div>
-    {#if selectedMood !== ''}
-        <p class="mt-4 text-center lg:hidden">You selected mood: <b>{selectedMood}</b></p>
-        <div class="flex justify-center lg:hidden">
-            <button
-                class="mt-2 bg-button-1 text-white p-2 rounded hover:bg-button-2"
-                on:click={() =>
-                    confirmMood(Object.keys(moods).find((key) => moods[key].description === selectedMood))}
-                >Confirm Mood</button
-            >
-        </div>
-		{#if moodConfirmed}
-		<MoodAdvisor {selectedMood} />
-	  {/if}
-    {/if}
-</main>
