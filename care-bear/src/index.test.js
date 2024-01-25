@@ -1,5 +1,4 @@
-// Create a vitest
-
+// Create a jest
 import { describe, expect, test } from 'vitest';
 
 describe('First test', () => {
