@@ -1,5 +1,11 @@
 {
-  "devDependencies": {
-    "eslint": "^8.56.0"
+ 
+
+  "scripts": {
+    "start": "your-start-command",
+    "build": "svelte-kit build",
+    "test": "your-test-command",
+    "dev": "svelte-kit dev"
   }
+  
 }

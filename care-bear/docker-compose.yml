@@ -1,0 +1,15 @@
+version: '3'
+services:
+  api-gateway:
+    build: .../apigateway
+    volumes:
+      - ./apigateway/code:/usr/src/app/care-bear
+    ports:
+      - "3000:3000"
+    networks:
+      - backend
+    working_dir: /usr/src/app/care-bear
+
+networks:
+  backend:
+    driver: bridge
