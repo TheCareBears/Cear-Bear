@@ -41,15 +41,23 @@ declare module '$env/static/private' {
 	export const ComSpec: string;
 	export const DriverData: string;
 	export const EDITOR: string;
+<<<<<<< HEAD
 	export const EFC_10648: string;
 	export const FPS_BROWSER_APP_PROFILE_STRING: string;
 	export const FPS_BROWSER_USER_PROFILE_STRING: string;
+=======
+	export const EFC_23804: string;
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 	export const GIT_ASKPASS: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
 	export const INIT_CWD: string;
+<<<<<<< HEAD
 	export const INTEL_DEV_REDIST: string;
+=======
+	export const JAVA_HOME: string;
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 	export const LANG: string;
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
@@ -81,11 +89,18 @@ declare module '$env/static/private' {
 	export const NPM_PREFIX_NPM_CLI_JS: string;
 	export const NUMBER_OF_PROCESSORS: string;
 	export const OneDrive: string;
+<<<<<<< HEAD
+=======
+	export const OneDriveConsumer: string;
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
 	export const Path: string;
 	export const PATHEXT: string;
+<<<<<<< HEAD
 	export const PhpStorm: string;
+=======
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 	export const PROCESSOR_ARCHITECTURE: string;
 	export const PROCESSOR_IDENTIFIER: string;
 	export const PROCESSOR_LEVEL: string;
@@ -96,7 +111,11 @@ declare module '$env/static/private' {
 	export const PROMPT: string;
 	export const PSModulePath: string;
 	export const PUBLIC: string;
+<<<<<<< HEAD
 	export const RlsSvcPort: string;
+=======
+	export const R_PROFILE_USER: string;
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 	export const SESSIONNAME: string;
 	export const SystemDrive: string;
 	export const SystemRoot: string;
@@ -162,15 +181,23 @@ declare module '$env/dynamic/private' {
 		ComSpec: string;
 		DriverData: string;
 		EDITOR: string;
+<<<<<<< HEAD
 		EFC_10648: string;
 		FPS_BROWSER_APP_PROFILE_STRING: string;
 		FPS_BROWSER_USER_PROFILE_STRING: string;
+=======
+		EFC_23804: string;
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 		GIT_ASKPASS: string;
 		HOME: string;
 		HOMEDRIVE: string;
 		HOMEPATH: string;
 		INIT_CWD: string;
+<<<<<<< HEAD
 		INTEL_DEV_REDIST: string;
+=======
+		JAVA_HOME: string;
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 		LANG: string;
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
@@ -202,11 +229,18 @@ declare module '$env/dynamic/private' {
 		NPM_PREFIX_NPM_CLI_JS: string;
 		NUMBER_OF_PROCESSORS: string;
 		OneDrive: string;
+<<<<<<< HEAD
+=======
+		OneDriveConsumer: string;
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
 		Path: string;
 		PATHEXT: string;
+<<<<<<< HEAD
 		PhpStorm: string;
+=======
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 		PROCESSOR_ARCHITECTURE: string;
 		PROCESSOR_IDENTIFIER: string;
 		PROCESSOR_LEVEL: string;
@@ -217,7 +251,11 @@ declare module '$env/dynamic/private' {
 		PROMPT: string;
 		PSModulePath: string;
 		PUBLIC: string;
+<<<<<<< HEAD
 		RlsSvcPort: string;
+=======
+		R_PROFILE_USER: string;
+>>>>>>> fa1796811e403ad96e493f643d1a715989ccde7e
 		SESSIONNAME: string;
 		SystemDrive: string;
 		SystemRoot: string;
