@@ -33,7 +33,11 @@ module.exports = {
     "svelte3/require-jsdoc": "error", // Require JSDoc comments for Svelte components
     "key-spacing": ["error", { "beforeColon": false, "afterColon": true }], // Enforce consistent spacing between keys and values in object literal properties
     "max-len": ["error", { "code": 120, "ignoreUrls": true }], // Enforce a maximum line length
-
+    "attr-value-double-quotes": "off",
+    "space-infix-ops": "error", // Enforce spaces around infix operators such as +, -, *, /
+    "space-before-function-paren": ["error", "never"], // Enforce no space before function parentheses
+    "space-unary-ops": "error", // Enforce spaces after unary operators such as ++, --
+    "no-tabs": "error" // Disallow tabs
 
 
 
