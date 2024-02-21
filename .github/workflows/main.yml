@@ -36,9 +36,9 @@ jobs:
           docker build . -t my-svelte-app
 
       - name: Docker Compose
-        uses: docker/compose-cli-action@v1.5.1
-        with:
-          compose-file: care-bear/docker-compose.yml
+        run: |
+          cd care-bear
+          docker-compose up -d
 
       - name: Notify on Failure
         if: failure()
