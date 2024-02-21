@@ -18,16 +18,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          # Adding cache for npm to speed up the installation process
+          cache: 'npm'
 
       - name: Install Dependencies
         run: |
           cd care-bear
-          npm install
-          
+          npm ci # Using npm ci for faster, more reliable installations based on package-lock.json
+
       - name: Run Unit Tests
         run: |
           cd care-bear
-          npm run test
+          npm test
 
       - name: Build the Docker image
         run: |
@@ -51,13 +53,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3 # Updated to v3 for consistency with the build job
 
       - name: Super-Linter
         uses: super-linter/super-linter@v5.7.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BRANCH: MyDefaultBranch
+          DEFAULT_BRANCH: main # Assuming 'MyDefaultBranch' is 'main', adjust if necessary
           DISABLE_ERRORS: true
           #OUTPUT_FOLDER: Reports
           OUTPUT_DETAILS: detailed
