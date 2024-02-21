@@ -1,15 +1,36 @@
-version: '3'
+version: '3.8'
+
 services:
-  api-gateway:
-    build: .../apigateway
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
     volumes:
-      - ./apigateway/code:/usr/src/app/care-bear
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+
+  app:
+    image: my-svelte-app:latest
+    build:
+      context: ./care-bear
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    networks:
-      - backend
-    working_dir: /usr/src/app/care-bear
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./care-bear:/app
+    command: npm start
 
-networks:
-  backend:
-    driver: bridge
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

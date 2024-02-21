@@ -39,7 +39,7 @@ jobs:
         run: |
           cd care-bear
           docker-compose up -d
-            -uses: actions/checkout@v2
+            -uses: actions/checkout@v3
             -uses: docker/compose-cli-action@v.1.5.1
             with:
               compose-file: docker-compose.yml
@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - name: Super-Linter
         uses: super-linter/super-linter@v5.7.2
