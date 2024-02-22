@@ -38,7 +38,13 @@ jobs:
       - name: Docker Compose
         run: |
           cd care-bear
-          docker-compose up -d
+          uses: docker/compose-cli-action@v1.5.1
+        with:
+          compose-file: care-bear/docker-compose.yml
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
 
       - name: Notify on Failure
         if: failure()
