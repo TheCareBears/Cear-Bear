@@ -12,35 +12,26 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18
 
       - name: Install Dependencies
         run: |
           cd care-bear
           npm install
-
+          
       - name: Run Unit Tests
         run: |
           cd care-bear
           npm run test
-      
 
       - name: Build the Docker image
         run: |
-          cd care-bear
           docker build . -t my-svelte-app
-
-      - name: Deploy to GitHub Pages
-        run: |
-          npm install -g gh-pages
-          cd care-bear
-          npm run build
-          gh-pages -d build -b gh-pages
 
       - name: Notify on Failure
         if: failure()
@@ -60,8 +51,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v1
 
       - name: Super-Linter
         uses: super-linter/super-linter@v5.7.2
@@ -69,6 +59,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: MyDefaultBranch
           DISABLE_ERRORS: true
+          #OUTPUT_FOLDER: Reports
           OUTPUT_DETAILS: detailed
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_POWERSHELL: false
