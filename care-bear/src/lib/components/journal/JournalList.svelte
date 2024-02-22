@@ -1,9 +1,9 @@
 <script>
 	import JournalEntryFront from './JournalEntryFront.svelte';
-	import { removeJournal } from '$lib/journalStore.js';
 	import { fade } from 'svelte/transition'; // Importa la transición
+	import { removeJournal } from '$lib/journalStore';
 
-	export let journals;
+	export let journals = importedJournals;
 	export let numOfEntries = 3;
 
 	async function handleDelete(journalId) {
@@ -23,10 +23,15 @@
 	<div class="space-y-4 p-4">
 		{#each journals.slice().reverse() as journal, i (journal.journal_id)}
 			<div
-				class="bg-white shadow-md rounded-lg overflow-hidden"
+				class="bg-fuchsia-100 shadow-md rounded-lg overflow-hidden"
 				transition:fade={{ duration: 300 }}
 			>
-				<div class="p-4 border-b flex justify-between items-center">
+				<div
+					class={`p-4 flex justify-between items-center ${
+						journal.journal_entry.length ? 'border-b border-gray-400' : ''
+					}`}
+				>
+					<!-- Se aplica el borde solo si hay entradas -->
 					<a href={`/journal/${journal.journal_id}`} class="block">
 						<div>
 							<h1 class="text-2xl font-semibold text-gray-800">{journal.title}</h1>
@@ -40,15 +45,18 @@
 						on:click={() => handleDelete(journal.journal_id)}>🗑️</button
 					>
 				</div>
-				<ul>
-					{#each journal.journal_entry.slice(0, numOfEntries) as entry}
-						<a href={`/journal/${entry.journal_id}`} class="block">
-							<li class="border-b last:border-b-0">
-								<JournalEntryFront {entry} />
+				{#if journal.journal_entry.length}
+					<ul>
+						{#each journal.journal_entry.slice(0, numOfEntries) as entry}
+							<li class="border-b last:border-b-0 border-gray-900">
+								<a href={`/journal/${entry.journal_id}`}>
+									<!-- El borde se aplica a cada entrada -->
+									<JournalEntryFront {entry} />
+								</a>
 							</li>
-						</a>
-					{/each}
-				</ul>
+						{/each}
+					</ul>
+				{/if}
 			</div>
 		{/each}
 	</div>
