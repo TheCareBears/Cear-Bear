@@ -1,7 +1,7 @@
 
 FROM node:12 AS build
 
-WORKDIR /app
+WORKDIR /care-bear
 
 COPY package.json ./
 COPY package-lock.json ./
